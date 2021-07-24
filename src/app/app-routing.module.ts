@@ -16,7 +16,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
     { path: 'posts', loadChildren: postsModule },
-    { path: 'plans', loadChildren: plansModule },
+    { path: 'plan', loadChildren: plansModule },
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
 
