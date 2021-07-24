@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgChatModule } from 'ng-chat';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
@@ -18,7 +19,8 @@ import { HomeComponent } from './home';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NgChatModule
     ],
     declarations: [
         AppComponent,

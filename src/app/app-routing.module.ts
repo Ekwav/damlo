@@ -9,11 +9,14 @@ const accountModule = () => import('./account/account.module').then(x => x.Accou
 const adminModule = () => import('./admin/admin.module').then(x => x.AdminModule);
 const profileModule = () => import('./profile/profile.module').then(x => x.ProfileModule);
 const postsModule = () => import('./posts/posts.module').then(x => x.PostsModule);
+const plansModule = () => import('./plans/plans.module').then(x => x.PlansModule);
+
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
     { path: 'posts', loadChildren: postsModule },
+    { path: 'plans', loadChildren: plansModule },
     { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
     { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
 

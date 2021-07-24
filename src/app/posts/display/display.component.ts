@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { PostService } from '../post.service';
 
 @Component({
-  selector: 'app-display',
-  templateUrl: './display.component.html',
-  styleUrls: ['./display.component.less']
+  selector: 'app-display-post',
+  templateUrl: 'display.component.html'
 })
 export class DisplayComponent implements OnInit {
 
-  constructor() { }
+  postValue : SafeHtml;
+
+  constructor(private sanitizer: DomSanitizer, private postService : PostService) { }
+  
 
   ngOnInit(): void {
-    alert("loaded");
+    this.postService.getPost("a").subscribe((res)=> {
+      /* OR */
+      this.postValue = this.sanitizer.bypassSecurityTrustHtml(res);
+  })
   }
 
 }

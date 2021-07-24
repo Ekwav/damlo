@@ -18,4 +18,5 @@
 
     <!-- main router outlet -->
     <router-outlet></router-outlet>
+    <ng-chat *ngIf="account" [adapter]="adapter" [userId]="userId" title="chat"></ng-chat>
 </div>
